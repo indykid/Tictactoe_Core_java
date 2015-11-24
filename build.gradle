@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+// configure maven's install command
+install {
+  repositories.mavenInstaller {
+    pom.version = '1.0.0'
+      pom.artifactId = 'TictactoeCore'
+      pom.groupId = 'kg.jarkyn'
+  }
+}
+
+// specifying the path to source code
+sourceSets {
+  main {
+    java {
+      srcDir 'src'
+    }
+  }
+  test {
+    java {
+      srcDir 'test'
+    }
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: '4.11'
+}
