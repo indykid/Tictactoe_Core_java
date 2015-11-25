@@ -5,14 +5,17 @@ public class GameMaker {
     private static Player playerO;
 
     public static Game makeGame(GameOption gameOption, HumanInput input) {
-        if (gameOption == GameOption.AI_FIRST) {
+        if (gameOption == GameOption.AI_ONLY) {
             playerX = makeAiPlayer(Mark.X);
-            playerO = makeHumanPlayer(Mark.O, input);
+            playerO = makeAiPlayer(Mark.O);
         } else if (gameOption == GameOption.AI_SECOND) {
-            playerX = new HumanPlayer(Mark.X, input);
-            playerO = new AiPlayer(Mark.O);
+            playerX = makeHumanPlayer(Mark.X, input);
+            playerO = makeAiPlayer(Mark.O);
+        } else if (gameOption == GameOption.HUMAN_ONLY){
+            playerX = makeHumanPlayer(Mark.X, input);
+            playerO = makeHumanPlayer(Mark.O, input);
         } else {
-            playerX = new HumanPlayer(Mark.X, input);
+            playerX = makeAiPlayer(Mark.X);
             playerO = makeHumanPlayer(Mark.O, input);
         }
         return new Game(new Board(), playerX, playerO);

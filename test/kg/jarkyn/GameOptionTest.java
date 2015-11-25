@@ -21,7 +21,12 @@ public class GameOptionTest {
     }
 
     @Test
-    public void returnsDefaultAiFirstOptionWhenParsing() {
+    public void returnsReadableDescriptionForComputerOnlyGame() {
+        assertEquals("4 - computer against itself", GameOption.AI_ONLY.readableOption());
+    }
+
+    @Test
+    public void returnsDefaultAiFirstOptionWhenParsingInvalidNumeric() {
         assertEquals(GameOption.AI_FIRST, GameOption.parse(-1));
     }
 

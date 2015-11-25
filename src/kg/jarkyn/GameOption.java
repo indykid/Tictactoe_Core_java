@@ -3,13 +3,14 @@ package kg.jarkyn;
 import java.util.LinkedHashMap;
 
 public enum GameOption {
-    AI_FIRST(1), AI_SECOND(2), HUMAN_ONLY(3);
+    AI_FIRST(1), AI_SECOND(2), HUMAN_ONLY(3), AI_ONLY(4);
 
     public static final LinkedHashMap<Integer, String> OPTIONS = new LinkedHashMap<>();
     static {
         OPTIONS.put(AI_FIRST.numericOption, " - computer plays first");
         OPTIONS.put(AI_SECOND.numericOption, " - computer plays second");
         OPTIONS.put(HUMAN_ONLY.numericOption, " - play against your friend (first to go plays X)");
+        OPTIONS.put(AI_ONLY.numericOption, " - computer against itself");
     }
 
     public int numericOption;
