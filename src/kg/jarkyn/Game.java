@@ -12,7 +12,7 @@ public class Game {
         this.board         = board;
         this.playerX       = playerX;
         this.playerO       = playerO;
-        this.currentPlayer = playerX;
+        this.currentPlayer = setCurrentPlayer();
     }
 
     public boolean isOver() {
@@ -63,5 +63,13 @@ public class Game {
 
     public Player getPlayerO() {
         return playerO;
+    }
+
+    private Player setCurrentPlayer(){
+        return playersHaveEqualAmountOfMoves() ? playerX : playerO;
+    }
+
+    private boolean playersHaveEqualAmountOfMoves() {
+        return (board.getAvailable().size() % 2) != 0;
     }
 }
