@@ -56,4 +56,12 @@ public class Game {
     private void swapPlayers() {
         currentPlayer = currentPlayer == playerX ? playerO : playerX;
     }
+
+    public Player getPlayerX() {
+        return playerX;
+    }
+
+    public Player getPlayerO() {
+        return playerO;
+    }
 }

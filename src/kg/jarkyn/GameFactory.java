@@ -1,10 +1,10 @@
 package kg.jarkyn;
 
-public class GameMaker {
-    private static Player playerX;
-    private static Player playerO;
+public class GameFactory {
 
-    public static Game makeGame(GameOption gameOption, HumanInput input) {
+    public static Game makeGame(Board board, GameOption gameOption, HumanInput input) {
+        Player playerX;
+        Player playerO;
         if (gameOption == GameOption.AI_ONLY) {
             playerX = makeAiPlayer(Mark.X);
             playerO = makeAiPlayer(Mark.O);
@@ -18,15 +18,7 @@ public class GameMaker {
             playerX = makeAiPlayer(Mark.X);
             playerO = makeHumanPlayer(Mark.O, input);
         }
-        return new Game(new Board(), playerX, playerO);
-    }
-
-    public static Player getPlayerX() {
-        return playerX;
-    }
-
-    public static Player getPlayerO() {
-        return playerO;
+        return new Game(board, playerX, playerO);
     }
 
     private static HumanPlayer makeHumanPlayer(Mark mark, HumanInput ui) {
