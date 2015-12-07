@@ -4,7 +4,7 @@ apply plugin: 'maven'
 // configure maven's install command
 install {
   repositories.mavenInstaller {
-    pom.version = '1.1.0'
+    pom.version = '1.2.0'
       pom.artifactId = 'TictactoeCore'
       pom.groupId = 'kg.jarkyn'
   }
